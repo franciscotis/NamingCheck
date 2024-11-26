@@ -1,0 +1,1 @@
+from .naming_check import VERSION, start
