@@ -1,12 +1,11 @@
 from setuptools import setup
 
-import naming_check.naming_check
 
 with open("README.md", "r") as arq:
     readme = arq.read()
 
 setup(name='naming-check',
-    version=naming_check.VERSION,
+    version='1.0.0',
     license='MIT License',
     author='Francisco Pereira',
     long_description=readme,

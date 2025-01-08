@@ -15,16 +15,12 @@ RESERVED_WORDS = [
     "if",
     "register",
     "return",
-    "short",
-    "signed",
     "sizeof",
     "static",
     "switch",
     "typedef",
     "union",
-    "unsigned",
     "void",
-    "volatile",
     "while",
 ]
 
