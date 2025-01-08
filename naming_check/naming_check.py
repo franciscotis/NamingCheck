@@ -7,6 +7,7 @@ from constants import (
     VARIABLE_DECLARATION_TYPES,
     PRE_DECLARATION_TYPES,
 )
+from analyzers.python_analyzer import PythonAnalyzer
 
 VERSION = '1.0.0'
 
@@ -251,8 +252,9 @@ def c_analyzer(code):
     return warnings
 
 
-def py_analyzer():
-    pass
+def py_analyzer(code):
+    analyzer = PythonAnalyzer(code)
+    return analyzer.analyze()
 
 
 def start():
@@ -271,7 +273,7 @@ def start():
     if input_file.endswith(".c"):
         warnings = c_analyzer(code)
     elif input_file.endswith(".py"):
-        raise Exception("Unsupported")
+        warnings = py_analyzer(code)
 
     for warning in warnings:
         print(warning)
