@@ -1,7 +1,7 @@
 import sys
 
-from analyzers.c_analyzer import CAnalyzer
-from analyzers.python_analyzer import PythonAnalyzer
+from naming_check.analyzers.c_analyzer import CAnalyzer
+from naming_check.analyzers.python_analyzer import PythonAnalyzer
 
 
 def c_analyzer(code):
@@ -33,7 +33,7 @@ def py_analyzer(code):
     return analyzer.analyze()
 
 
-def start():
+def analyze():
     """
     Starts the analysis process by reading the input file and running the appropriate analyzer based on the file type.
 
@@ -50,14 +50,20 @@ def start():
     args = sys.argv
 
     if len(args) == 1:
-        raise Exception("No input file was provided")
+        raise ValueError("No input file was provided")
 
     input_file = args[1]
 
     warnings = []
 
-    with open(input_file, "r") as file:
-        code = file.read().splitlines()
+    try:
+        with open(input_file, "r") as file:
+            code = file.read().splitlines()
+    except FileNotFoundError as exc:
+         raise FileNotFoundError(f"The file '{input_file}' does not exist.")
+    except IOError as e:
+        raise IOError(f"An error occurred while trying to read the file '{input_file}': {str(e)}")
+
 
     if input_file.endswith(".c"):
         warnings = c_analyzer(code)
@@ -69,4 +75,4 @@ def start():
 
 
 if __name__ == "__main__":
-    start()
+    analyze()

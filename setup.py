@@ -13,5 +13,10 @@ setup(name='naming-check',
     author_email='franncisco.p@gmail.comr',
     keywords='naming check static analysis',
     description=u'A Static analysis tool for check naming conventions',
-    packages=['naming_check'],
+    packages=['naming_check', 'naming_check.analyzers', 'naming_check.rules'],
+    entry_points={
+        'console_scripts': [
+            'naming_check = naming_check.main:analyze'
+        ]
+    }
       )

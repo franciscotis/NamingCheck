@@ -1,6 +1,6 @@
 
 # NamingCheck
-A static analyzer tool for checking naming conventions in C.
+A static analyzer tool for checking naming conventions in C and Python.
 
 
 ## Install
@@ -19,7 +19,7 @@ You can start using the analyzer by providing the relative path of the code that
 
 
 ```python
-  python naming_check C:\Documents\Codes\my_code.c
+  naming_check C:\Documents\Codes\my_code.c
 ```
 
 The analyzer will check all variables and functions and provide a feedback about their declaration such as:
@@ -34,11 +34,11 @@ The analyzer will check all variables and functions and provide a feedback about
 The following list presents all the warnings that can be presented by the analyzer:
 
 - Structs should be declared in lowercase.
-- Enums declaration should be capitalized
+- Enums declaration should be pascalcase.
 - All constants should be declared in uppercase.
-- Functions names should be lower cased.
+- Functions names should be declared in snakecase.
 - If you initialize one variable, you should initialize the others
 - Pointers variables should not be declared with no pointers variables
-- Variables names should be lower cased
+- Variables names should be declared in snake case.
 - Variables names should have length greater than one.
 

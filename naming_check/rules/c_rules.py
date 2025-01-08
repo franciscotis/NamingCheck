@@ -1,6 +1,6 @@
 import re 
 from typing import List
-from constants import PRE_DECLARATION_TYPES
+from naming_check.constants import PRE_DECLARATION_TYPES
 
 
 def rule_initialized_all_variables(declaration: str) -> bool:  
@@ -163,7 +163,7 @@ def struct_declaration_should_be_in_lower_case(
     line = declaration.split(" ")
     struct_name = ""
     if line[0] == "typedef":
-        if 2 < len(line) and line[2] is not "{":
+        if 2 < len(line) and line[2] != "{":
             struct_name = line[2]
         else:
             return None

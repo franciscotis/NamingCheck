@@ -1,6 +1,6 @@
 import re
 
-from rules.py_rules import rule_names_should_be_snake_case, rule_variable_names_should_have_length_greater_than_one 
+from naming_check.rules.py_rules import rule_names_should_be_snake_case, rule_variable_names_should_have_length_greater_than_one 
 class PythonAnalyzer:
     """
     A class responsible for analyzing Python code to detect style violations and coding standard issues.

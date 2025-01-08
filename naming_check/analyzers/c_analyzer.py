@@ -1,8 +1,8 @@
 import re 
 from typing import List
 
-from constants import FUNCTION_DECLARATION_TYPES, PRE_DECLARATION_TYPES, RESERVED_WORDS, VARIABLE_DECLARATION_TYPES
-from rules.c_rules import all_constants_should_be_declared_in_uppercase, enums_should_be_pascal_case, functions_should_be_lower_cased, pointers_should_not_be_declared_with_non_pointers, rule_initialized_all_variables, struct_declaration_should_be_in_lower_case, struct_typedef_name_should_be_in_lower_case, variables_should_be_snake_cased, variables_should_have_length_greater_than_one
+from naming_check.constants import FUNCTION_DECLARATION_TYPES, PRE_DECLARATION_TYPES, RESERVED_WORDS, VARIABLE_DECLARATION_TYPES
+from naming_check.rules.c_rules import all_constants_should_be_declared_in_uppercase, enums_should_be_pascal_case, functions_should_be_lower_cased, pointers_should_not_be_declared_with_non_pointers, rule_initialized_all_variables, struct_declaration_should_be_in_lower_case, struct_typedef_name_should_be_in_lower_case, variables_should_be_snake_cased, variables_should_have_length_greater_than_one
 
 class CAnalyzer:
     """
@@ -78,7 +78,7 @@ class CAnalyzer:
                 line, self.struct_types
             )
             if warning:
-                self.append_warning("Structs should be declared in lower case.")
+                self.append_warning("Structs should be declared in lowercase.")
             
     def enum_handler(self, line) -> None:
         """
@@ -89,7 +89,7 @@ class CAnalyzer:
         """
         warning = not enums_should_be_pascal_case(line)
         if warning:
-            self.append_warning("Enums declaration should be in pascal case.")
+            self.append_warning("Enums declaration should be in pascalcase.")
             
     def constant_handler(self, line) -> None:
         """
@@ -125,7 +125,7 @@ class CAnalyzer:
         """
         warning = not functions_should_be_lower_cased(line)
         if warning:
-            self.append_warning("Functions names should be declared in snake case.")
+            self.append_warning("Functions names should be declared in snakecase.")
         
     def variable_handler(self, line) -> None:
         """
