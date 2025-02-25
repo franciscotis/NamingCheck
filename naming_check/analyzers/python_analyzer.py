@@ -47,8 +47,8 @@ class PythonAnalyzer:
             line = code.strip()
             if self.is_variable_declaration(line):
                 self.variable_handler(line)
-            if self.is_function_declaration(line):
-                self.function_handler()
+            # if self.is_function_declaration(line):
+            #     self.function_handler()
             self.current_line+=1
             
             
@@ -56,10 +56,10 @@ class PythonAnalyzer:
         """
             Checks the current variable name for snake_case naming convention and appends a warning if necessary.
         """
-        warning = not rule_names_should_be_snake_case(self.current_variable)
-        if(warning):
-            self.append_warning("Variables names should be declared in snake case.")
-        warning = not rule_variable_names_should_have_length_greater_than_one(self.current_variable, line)
+        # warning = not rule_names_should_be_snake_case(self.current_variable)
+        # if(warning):
+        #     self.append_warning("Variables names should be declared in snake case.")
+        warning = rule_variable_names_should_have_length_greater_than_one(self.current_variable, line)
         if warning:
             self.append_warning("Variables names should have length greater than one.")
         self.current_variable = None
